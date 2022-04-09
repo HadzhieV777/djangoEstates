@@ -1,0 +1,31 @@
+<div class="col-sm-12">
+    <nav class="pagination-a">
+        <ul class="pagination justify-content-end">
+            <li class="page-item disabled">
+            <span>
+                <a class="page-link" tabindex="-1">
+                    {% if page_obj.has_previous %}
+                        <b><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></b>
+                    {% endif %}
+                </a>
+            </span>
+            </li>
+
+            <li class="page-item" style="padding-right: 30px; padding-top: 15px">
+                <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+            </li>
+
+            {% if page_obj.has_next %}
+                <li class="page-item next">
+                    <a class="page-link">
+                         <span>
+                             <b><a style="max-height: 50%" href="?page={{ page_obj.next_page_number }}">&raquo;</a></b>
+                         </span>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>

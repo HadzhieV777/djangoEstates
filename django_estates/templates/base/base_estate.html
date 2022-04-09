@@ -1,0 +1,46 @@
+<div class="col-md-4">
+    <div class="card-box-a card-shadow">
+        <div class="img-box-a">
+            <img style="height: 400px; object-fit: cover; width: 400px;" src="{{ estate.main_image.url }}"
+                 alt="{{ estate.title }}"
+                 class="img-a img-fluid">
+        </div>
+        <div class="card-overlay">
+            <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                    <h2 class="card-title-a">
+                        <a style="color: mediumseagreen;" href="#">{{ estate.title }}
+                            <br/> <span style="font-size: 1.2rem; color: white;">{{ estate.location }}</span></a>
+                    </h2>
+                </div>
+                <div class="card-body-a">
+                    <div class="price-box d-flex">
+                        <span class="price-a">{{ estate.type_of_transaction }} | EUR {{ estate.price|floatformat:"-3g" }}</span>
+                    </div>
+                    <a href="{% url 'estate details' estate.id %}" class="link-a">Click here to
+                        view
+                        <span class="bi bi-chevron-right"></span>
+                    </a>
+                </div>
+                <div class="card-footer-a">
+                    <ul class="card-info d-flex justify-content-around">
+                        <li>
+                            <h4 class="card-info-title">Area</h4>
+                            <span>{{ estate.area|floatformat:"-3g" }}m
+                          <sup>2</sup>
+                        </span>
+                        </li>
+                        <li>
+                            <h4 class="card-info-title">Floor</h4>
+                            <span>{{ estate.floor }}</span>
+                        </li>
+                        <li>
+                            <h4 class="card-info-title">Exposition</h4>
+                            <span>{{ estate.exposition }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

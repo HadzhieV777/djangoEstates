@@ -1,0 +1,339 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block page_content %}
+
+    <section class="intro-single">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-8">
+                    <div class="title-single-box">
+                        <h1 class="title-single">The Leading Real Estate Brokerage</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Intro Single-->
+    <!-- ======= Section ======= -->
+    <section class="section-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 position-relative">
+                    <div class="about-img-box">
+                             <img src={% static 'img/about.jpg' %} alt="{% static 'img/slide-about-1.jpg' %}"
+                             class="img-fluid">
+                    </div>
+                    <div class="sinse-box">
+                        <h3 class="sinse-title">RealEstate Agency
+                            {#                                <span></span>#}
+                            <br> Since 2022
+                        </h3>
+                        <p>Full Real Estates Services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main id="main">
+        <div class="container" style="padding-top: 100px">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-wrap d-flex justify-content-between">
+                        <div class="title-box">
+                            <h2 class="title-a">Latest Estates</h2>
+                        </div>
+                        <div class="title-link">
+                            <a href="{% url 'estates page' %}">All Estates
+                                <span class="bi bi-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding-top: 20px;width: 1000px" class="intro intro-carousel swiper">
+
+                <div class="swiper-wrapper">
+                    {% for estate in estates|slice:":4" %}
+                        <div class="swiper-slide carousel-item-a intro-item bg-image"
+                             style="background-image: url({{ estate.main_image.url }});">
+                            <div class="overlay overlay-a"></div>
+                            <div class="intro-content display-table">
+                                <div class="table-cell">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="intro-body">
+                                                    <p class="intro-title-top"> {{ estate.location }}
+                                                    </p>
+                                                    <h1 class="intro-title mb-4 ">
+                                                        {{ estate.title|truncatewords:4 }}
+                                                    </h1>
+                                                    <p class="intro-subtitle intro-price">
+                                                        <a href="{% url 'estate details' estate.id %}"><span
+                                                                class="price-a">{{ estate.type_of_transaction }} | $ {{ estate.price }}</span></a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <!-- End Latest Section -->
+    </main>
+    {##}
+    {#        <!-- ======= Agents Section ======= -->#}
+    {#        <section class="section-agents section-t8">#}
+    {#            <div class="container">#}
+    {#                <div class="row">#}
+    {#                    <div class="col-md-12">#}
+    {#                        <div class="title-wrap d-flex justify-content-between">#}
+    {#                            <div class="title-box">#}
+    {#                                <h2 class="title-a">Best Agents</h2>#}
+    {#                            </div>#}
+    {#                            <div class="title-link">#}
+    {#                                <a href="agents_grid.html">All Agents#}
+    {#                                    <span class="bi bi-chevron-right"></span>#}
+    {#                                </a>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="row">#}
+    {#                    <div class="col-md-4">#}
+    {#                        <div class="card-box-d">#}
+    {#                            <div class="card-img-d">#}
+    {#                                <img src="{% static 'img/agent-4.jpg' %}" alt="" class="img-d img-fluid">#}
+    {#                            </div>#}
+    {#                            <div class="card-overlay card-overlay-hover">#}
+    {#                                <div class="card-header-d">#}
+    {#                                    <div class="card-title-d align-self-center">#}
+    {#                                        <h3 class="title-d">#}
+    {#                                            <a href="agent-single.html" class="link-two">Margaret Sotillo#}
+    {#                                                <br> Escala</a>#}
+    {#                                        </h3>#}
+    {#                                    </div>#}
+    {#                                </div>#}
+    {#                                <div class="card-body-d">#}
+    {#                                    <p class="content-d color-text-a">#}
+    {#                                        Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.#}
+    {#                                    </p>#}
+    {#                                    <div class="info-agents color-a">#}
+    {#                                        <p>#}
+    {#                                            <strong>Phone: </strong> +54 356 945234#}
+    {#                                        </p>#}
+    {#                                        <p>#}
+    {#                                            <strong>Email: </strong> agents@example.com#}
+    {#                                        </p>#}
+    {#                                    </div>#}
+    {#                                </div>#}
+    {#                                <div class="card-footer-d">#}
+    {#                                    <div class="socials-footer d-flex justify-content-center">#}
+    {#                                        <ul class="list-inline">#}
+    {#                                            <li class="list-inline-item">#}
+    {#                                                <a href="#" class="link-one">#}
+    {#                                                    <i class="bi bi-facebook" aria-hidden="true"></i>#}
+    {#                                                </a>#}
+    {#                                            </li>#}
+    {#                                            <li class="list-inline-item">#}
+    {#                                                <a href="#" class="link-one">#}
+    {#                                                    <i class="bi bi-twitter" aria-hidden="true"></i>#}
+    {#                                                </a>#}
+    {#                                            </li>#}
+    {#                                            <li class="list-inline-item">#}
+    {#                                                <a href="#" class="link-one">#}
+    {#                                                    <i class="bi bi-instagram" aria-hidden="true"></i>#}
+    {#                                                </a>#}
+    {#                                            </li>#}
+    {#                                            <li class="list-inline-item">#}
+    {#                                                <a href="#" class="link-one">#}
+    {#                                                    <i class="bi bi-linkedin" aria-hidden="true"></i>#}
+    {#                                                </a>#}
+    {#                                            </li>#}
+    {#                                        </ul>#}
+    {#                                    </div>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                    <div class="col-md-4">#}
+    {#                        <div class="card-box-d">#}
+    {#                            <div class="card-img-d">#}
+    {#                                <img src="{% static 'img/agent-1.jpg' %}" alt="" class="img-d img-fluid">#}
+    {#                            </div>#}
+    {#                            <div class="card-overlay card-overlay-hover">#}
+    {#                                <div class="card-header-d">#}
+    {#                                    <div class="card-title-d align-self-center">#}
+    {#                                        <h3 class="title-d">#}
+    {#                                            <a href="agent-single.html" class="link-two">Stiven Spilver#}
+    {#                                                <br> Darw</a>#}
+    {#                                        </h3>#}
+    {#                                    </div>#}
+    {#                                </div>#}
+    {#                                <div class="card-body-d">#}
+    {#                                    <p class="content-d color-text-a">#}
+    {#                                        Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.#}
+    {#                                    </p>#}
+    {#                                    <div class="info-agents color-a">#}
+    {#                                        <p>#}
+    {#                                            <strong>Phone: </strong> +54 356 945234#}
+    {#                                        </p>#}
+    {#                                        <p>#}
+    {#                                            <strong>Email: </strong> agents@example.com#}
+    {#                                        </p>#}
+    {#                                    </div>#}
+    {#                                </div>#}
+    {#                                <div class="card-footer-d">#}
+    {#                                    <div class="socials-footer d-flex justify-content-center">#}
+    {#                                        <ul class="list-inline">#}
+    {#                                            <li class="list-inline-item">#}
+    {#                                                <a href="#" class="link-one">#}
+    {#                                                    <i class="bi bi-facebook" aria-hidden="true"></i>#}
+    {#                                                </a>#}
+    {#                                            </li>#}
+    {#                                            <li class="list-inline-item">#}
+    {#                                                <a href="#" class="link-one">#}
+    {#                                                    <i class="bi bi-twitter" aria-hidden="true"></i>#}
+    {#                                                </a>#}
+    {#                                            </li>#}
+    {#                                            <li class="list-inline-item">#}
+    {#                                                <a href="#" class="link-one">#}
+    {#                                                    <i class="bi bi-instagram" aria-hidden="true"></i>#}
+    {#                                                </a>#}
+    {#                                            </li>#}
+    {#                                            <li class="list-inline-item">#}
+    {#                                                <a href="#" class="link-one">#}
+    {#                                                    <i class="bi bi-linkedin" aria-hidden="true"></i>#}
+    {#                                                </a>#}
+    {#                                            </li>#}
+    {#                                        </ul>#}
+    {#                                    </div>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                    <div class="col-md-4">#}
+    {#                        <div class="card-box-d">#}
+    {#                            <div class="card-img-d">#}
+    {#                                <img src="{% static 'img/agent-5.jpg' %}" alt="" class="img-d img-fluid">#}
+    {#                            </div>#}
+    {#                            <div class="card-overlay card-overlay-hover">#}
+    {#                                <div class="card-header-d">#}
+    {#                                    <div class="card-title-d align-self-center">#}
+    {#                                        <h3 class="title-d">#}
+    {#                                            <a href="agent-single.html" class="link-two">Emma Toledo#}
+    {#                                                <br> Cascada</a>#}
+    {#                                        </h3>#}
+    {#                                    </div>#}
+    {#                                </div>#}
+    {#                                <div class="card-body-d">#}
+    {#                                    <p class="content-d color-text-a">#}
+    {#                                        Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.#}
+    {#                                    </p>#}
+    {#                                    <div class="info-agents color-a">#}
+    {#                                        <p>#}
+    {#                                            <strong>Phone: </strong> +54 356 945234#}
+    {#                                        </p>#}
+    {#                                        <p>#}
+    {#                                            <strong>Email: </strong> agents@example.com#}
+    {#                                        </p>#}
+    {#                                    </div>#}
+    {#                                </div>#}
+    {#                                <div class="card-footer-d">#}
+    {#                                    <div class="socials-footer d-flex justify-content-center">#}
+    {#                                        <ul class="list-inline">#}
+    {#                                            <li class="list-inline-item">#}
+    {#                                                <a href="#" class="link-one">#}
+    {#                                                    <i class="bi bi-facebook" aria-hidden="true"></i>#}
+    {#                                                </a>#}
+    {#                                            </li>#}
+    {#                                            <li class="list-inline-item">#}
+    {#                                                <a href="#" class="link-one">#}
+    {#                                                    <i class="bi bi-twitter" aria-hidden="true"></i>#}
+    {#                                                </a>#}
+    {#                                            </li>#}
+    {#                                            <li class="list-inline-item">#}
+    {#                                                <a href="#" class="link-one">#}
+    {#                                                    <i class="bi bi-instagram" aria-hidden="true"></i>#}
+    {#                                                </a>#}
+    {#                                            </li>#}
+    {#                                            <li class="list-inline-item">#}
+    {#                                                <a href="#" class="link-one">#}
+    {#                                                    <i class="bi bi-linkedin" aria-hidden="true"></i>#}
+    {#                                                </a>#}
+    {#                                            </li>#}
+    {#                                        </ul>#}
+    {#                                    </div>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </section><!-- End Agents Section -->#}
+    {##}
+    <!-- ======= Latest News Section ======= -->
+    <section class="section-news section-t8">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-wrap d-flex justify-content-between">
+                        <div class="title-box">
+                            <h2 class="title-a">Check out our Blog</h2>
+                        </div>
+                        <div class="title-link">
+                            <a href="{% url 'blog page' %}">All Posts
+                                <span class="bi bi-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="news-carousel" class="swiper">
+                <div class="swiper-wrapper">
+                    {% for  post in blog|slice:":4" %}
+                        <div class="carousel-item-c swiper-slide">
+                            <div class="card-box-b card-shadow news-box">
+                                <div class="img-box-b">
+                                    <img style="height: 400px; object-fit: cover; width: 400px;" src="{{ post.image }}"
+                                         alt="{{ post.title }}" class="img-b img-fluid">
+                                </div>
+                                <div class="card-overlay">
+                                    <div class="card-header-b">
+                                        <div class="card-category-b">
+                                            <a class="category-b">{{ post.category }}</a>
+                                        </div>
+                                        <div class="card-title-b">
+                                            <h2 class="title-2">
+                                                <a href="{% url 'post detail' post.slug %}">{{ post.title|truncatewords:5 }}
+
+                                                </a></h2>
+                                        </div>
+                                        <div class="card-date">
+                                            <span class="date-b">{{ post.updated_on }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End carousel item -->
+                    {% endfor %}
+
+                </div>
+            </div>
+
+            <div class="news-carousel-pagination carousel-pagination"></div>
+        </div>
+    </section><!-- End Latest News Section -->
+
+    <!-- End #main -->
+
+{% endblock %}
