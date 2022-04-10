@@ -1,0 +1,60 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    <main id="main">
+
+        <!-- ======= Intro Single ======= -->
+        <section class="intro-single">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-8">
+                        <div class="title-single-box">
+                            <h1 class="title-single">Discover a New, Cozy Home, Wherever You Are</h1>
+                            <span class="color-text-a">Only actual and tested offers.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Intro Single-->
+        <div class="row section-t3">
+            <div style="padding-left:34em;" class="col-sm-12">
+                <div class="title-box-d">
+                    <h3 class="title-d">For Sale</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======= Property Grid ======= -->
+        <section class="property-grid grid">
+            <div class="container">
+                <div class="row">
+                    {% for estate in estates_for_sale %}
+                        {% include 'base/base_estate.html' %}
+                    {% endfor %}
+                </div>
+
+            </div>
+        </section><!-- End Property Grid Single-->
+
+        <div class="row section-t3">
+            <div style="padding-left:34em;" class="col-sm-12">
+                <div  class="title-box-d">
+                    <h3 class="title-d">For Rent</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======= Property Grid ======= -->
+        <section class="property-grid grid">
+            <div class="container">
+                <div class="row">
+                    {% for estate in estates_for_rent %}
+                        {% include 'base/base_estate.html' %}
+                    {% endfor %}
+                </div>
+
+            </div>
+        </section><!-- End Property Grid Single-->
+
+    </main><!-- End #main -->
+
+{% endblock %}

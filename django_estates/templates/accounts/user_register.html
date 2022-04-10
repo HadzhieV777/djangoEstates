@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    <div class="container mb-5">
+        <h1 class="text-center" style="padding-bottom: 20px">Register</h1>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+
+                <!-- Login Form -->
+                <form method="POST" action="{% url 'register user' %}">
+                    {% csrf_token %}
+                    {{ form }}
+                    <div class="col-md-12 text-center" style="padding-top: 20px">
+                        <button class="btn btn-a" type="submit">Register</button>
+                    </div>
+                </form>
+                <!-- End Login Form -->
+
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+    </div>
+
+
+{% endblock %}

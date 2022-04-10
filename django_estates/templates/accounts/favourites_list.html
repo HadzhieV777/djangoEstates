@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    <main id="main">
+
+        <!-- ======= Intro Single ======= -->
+        <section class="intro-single">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-8">
+                        <div class="title-single-box">
+                            <h1 class="title-single">{{ request.user.profile.first_name }}'s Favourites</h1>
+                            <span class="color-text-a">Your next deal awaits you!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Intro Single-->
+        {% if not fav_estates %}
+            <h1 class="text-center" style="padding-bottom: 10px">This section is empty!</h1>
+        {% else %}
+            <!-- ======= Property Grid ======= -->
+            <section class="property-grid grid">
+                <div class="container">
+                    <div class="row">
+                        {% for estate in fav_estates %}
+                            {% include 'base/base_estate.html' %}
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </section><!-- End Property Grid Single-->
+        {% endif %}
+    </main><!-- End #main -->
+
+{% endblock %}
