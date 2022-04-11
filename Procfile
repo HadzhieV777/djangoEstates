@@ -1,2 +1,2 @@
-web: gunicorn --pythonpath djangoEstates:django_estates.wsgi
+web: gunicorn --pythonpath django_estates django_estates.wsgi
 release: python django_estates/manage.py migrate
