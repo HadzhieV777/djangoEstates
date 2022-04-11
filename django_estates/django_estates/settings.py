@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'django_estates.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_estates_db',
-        'USER': 'postgres',
-        'PASSWORD': '1123QwER',
-        'HOST': '127.0.0.1',
+        'NAME': 'd16h5c1q33e09d',
+        'USER': 'vlrkltewnmlwic',
+        'PASSWORD': 'ccf1fbe19fc1bcce421836818683e742c381229c6ee8034d5b6b7c39f62bdf31',
+        'HOST': 'ec2-52-18-116-67.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
 }
