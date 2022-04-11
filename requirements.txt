@@ -1,7 +1,7 @@
 alabaster==0.7.12
-anaconda-client==1.7.2
-anaconda-navigator==2.0.3
-anaconda-project==0.9.1
+anaconda-client
+anaconda-navigator
+anaconda-project
 anyio==2.2.0
 appdirs==1.4.4
 arabic-reshaper==2.1.3
