@@ -2,6 +2,9 @@ from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator, RegexValidator
 from django.db import models
 
+from cloudinary.models import CloudinaryField
+
+
 UserModel = get_user_model()
 
 
@@ -133,7 +136,7 @@ class Estate(models.Model):
         default=None,
         blank=True,
     )
-    main_image = models.ImageField()
+    main_image = CloudinaryField('image')
     publication_date = models.DateField(
         auto_now_add=True,
     )
@@ -157,6 +160,6 @@ class EstateImages(models.Model):
         related_name='images',
         on_delete=models.CASCADE,
     )
-    image = models.FileField(
-        upload_to=IMAGE_UPLOAD_TO_DIR,
+    CloudinaryField(
+        'image'
     )
