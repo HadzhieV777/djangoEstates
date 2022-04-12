@@ -2,8 +2,8 @@ from django.contrib.auth import models as auth_models
 from django.core.validators import RegexValidator, MinLengthValidator
 from django.db import models
 
+
 from django_estates.accounts.managers import DjangoEstatesUserManager
-from cloudinary.models import CloudinaryField
 
 
 class DjangoEstatesUser(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
@@ -56,10 +56,10 @@ class Profile(models.Model):
             RegexValidator(r'^[a-zA-Z]*$', ONLY_LETTERS_ERROR_MESSAGE),
         ),
     )
-    image = CloudinaryField(
-        'image',
+    image = models.URLField(
         null=True,
-        blank=True,     )
+        blank=True,
+    )
     description = models.TextField(
         null=True,
         blank=True,
