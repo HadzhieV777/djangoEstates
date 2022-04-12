@@ -1,5 +1,6 @@
 asgiref==3.5.0
 backports.zoneinfo==0.2.1
+cloudinary==1.29.0
 coverage==6.3.2
 Django==4.0.3
 django-pandas==0.6.6
