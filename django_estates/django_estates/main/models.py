@@ -160,6 +160,4 @@ class EstateImages(models.Model):
         related_name='images',
         on_delete=models.CASCADE,
     )
-    CloudinaryField(
-        'image'
-    )
+    image = CloudinaryField('image')
