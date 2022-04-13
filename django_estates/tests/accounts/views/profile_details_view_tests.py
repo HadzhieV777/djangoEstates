@@ -72,7 +72,7 @@ class ProfileDetailsViewTests(TestCase):
         self.client.get(reverse('profile details', kwargs={
             'pk': profile.pk,
         }))
-        self.assertTemplateUsed('accounts/profile_edit.html')
+        self.assertTemplateUsed('accounts/profile_details.html')
 
     def test_when_user__is_owner__should_be_true(self):
         user, profile = self.__create_valid_user_and_profile()
