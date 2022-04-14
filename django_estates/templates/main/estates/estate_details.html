@@ -61,8 +61,9 @@
 
                                     </div>
                                 </div>
-                                 <a class="favourites" href="{% url 'favourite add' estate.pk %}"><i
-                                    class="bi bi-bookmark-star big"></i>Favourites</a>
+                                {% if request.user.is_authenticated %}
+                                <a class="favourites" href="{% url 'favourite add' estate.pk %}"><i
+                                        class="bi bi-bookmark-star big"></i>Favourites</a> {% endif %}
                                 <span style="padding-left: 6em"><strong>(€ {{ price_per_sqm|floatformat }} sq.m)</strong></span>
                                 <div class="property-summary">
                                     <div class="row">
