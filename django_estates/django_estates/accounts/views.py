@@ -40,7 +40,7 @@ class UserChangePasswordView(auth_views.PasswordChangeView):
 
 
 # Profile main
-class ProfileDetailsView(auth_mixins.LoginRequiredMixin, views.DetailView):
+class ProfileDetailsView(views.DetailView):
     model = Profile
     template_name = 'accounts/profile_details.html'
     context_object_name = 'profile'
