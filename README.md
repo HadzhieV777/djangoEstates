@@ -6,4 +6,3 @@ If a user is broker, he can upload estates but cannot add comments in the blog p
 
 Full project description at: django_estates/djangoEstates-app-description.odt
 
-This app is available at: https://djangoestates.herokuapp.com/
